@@ -12,7 +12,7 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import Button from "@mui/material/Button";
 import React from "react";
-import logo from "../../assets/logo.png";
+import logo from "/images/logo.png";
 
 const pages = [
   "Home",

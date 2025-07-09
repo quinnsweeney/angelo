@@ -93,7 +93,7 @@ const DirectionsPage: React.FC = () => {
               >
                 <Box
                   component="img"
-                  src="/src/assets/logo.png"
+                  src="/images/logo.png"
                   alt="Our logo"
                   sx={{
                     width: "100%",
