@@ -93,7 +93,7 @@ const DirectionsPage: React.FC = () => {
               >
                 <Box
                   component="img"
-                  src="/images/logo.png"
+                  src="/angelo/images/logo.png"
                   alt="Our logo"
                   sx={{
                     width: "100%",
@@ -129,31 +129,28 @@ const DirectionsPage: React.FC = () => {
 
           <Paper elevation={3} sx={{ p: 4 }}>
             <Typography variant="h4" component="h2" gutterBottom>
-              Business Hours
-            </Typography>
-            <List>
-              <ListItem>
-                <ListItemText primary="Monday - Friday: 9:00 AM - 7:00 PM" />
-              </ListItem>
-              <ListItem>
-                <ListItemText primary="Saturday: 8:00 AM - 5:00 PM" />
-              </ListItem>
-              <ListItem>
-                <ListItemText primary="Sunday: Closed" />
-              </ListItem>
-            </List>
-          </Paper>
-
-          <Paper elevation={3} sx={{ p: 4 }}>
-            <Typography variant="h4" component="h2" gutterBottom>
               Contact
             </Typography>
             <List>
               <ListItem>
-                <ListItemText primary="Phone: (555) 123-4567" />
+                {isMobile ? (
+                  <ListItemText
+                    primary={
+                      <Link
+                        href="tel:4706351290"
+                        color="inherit"
+                        underline="hover"
+                      >
+                        Phone: (470) 635 1290
+                      </Link>
+                    }
+                  />
+                ) : (
+                  <ListItemText primary="Phone: (470) 635 1290" />
+                )}
               </ListItem>
               <ListItem>
-                <ListItemText primary="Email: info@barbershop.com" />
+                <ListItemText primary="Email: **Don't have an email to put here so placeholder for now**" />
               </ListItem>
             </List>
           </Paper>

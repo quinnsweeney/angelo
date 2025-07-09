@@ -20,31 +20,31 @@ const products: Product[] = [
     title: "Hair Powder",
     description:
       "Discover a featherlight hair powder for men that styles and texturizes without the weight. Our talc-free formula adds flexible hold, bold texture, and clean volume to second-day styles, letting you reshape and refresh effortlessly.",
-    imageUrl: "/images/hair-powder.jpg",
+    imageUrl: "/angelo/images/hair-powder.jpg",
   },
   {
     title: "Molding Paste",
     description:
       "Perfect for all hair types and styles, our molding paste effortlessly shapes wavy, straight, or curly hair, whether dry, thin, or thick, into structured or unstructured looks. It leaves your hair soft with a semi-glossy, authentic finish, helping you achieve an effortless look.",
-    imageUrl: "/images/paste.jpg",
+    imageUrl: "/angelo/images/paste.jpg",
   },
   {
     title: "Clay",
     description:
       "Clay blends clay, wax, and elastic fibers for added thickness and a natural, shine-free finish. Ideal for thin or fine hair, this paraben-free clay offers non-sticky, touchable, and moldable styles with medium hold. Perfect for short to medium hair, it delivers a textured, matte look without stiffness or weight.",
-    imageUrl: "/images/clay.jpg",
+    imageUrl: "/angelo/images/clay.jpg",
   },
   {
     title: "Pomade",
     description:
       "Perfect for all hair types and styles, our pomade effortlessly shapes wavy, straight, or curly hair, whether dry, thin, or thick, into structured or unstructured looks. It leaves your hair soft with a semi-glossy, authentic finish, helping you achieve an effortless look.",
-    imageUrl: "/images/pomade.jpg",
+    imageUrl: "/angelo/images/pomade.jpg",
   },
   {
     title: "Wax",
     description:
       "This versatile paraben-free wax combines wax and clay in a beeswax consistency, delivering a strong, pliable grip for precise styling. Ideal for messy or sleek hairstyles, as well as shaping mustaches, beards, or goatees, it offers frizz-free definition with a low sheen. With a high-hold, low-shine formula, it lasts all day and remains flexible for reshaping the next day.",
-    imageUrl: "/images/wax.jpg",
+    imageUrl: "/angelo/images/wax.jpg",
   },
 ];
 
