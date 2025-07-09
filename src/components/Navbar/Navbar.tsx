@@ -24,8 +24,10 @@ const pages = [
 
 function Navbar({
   setCurrentPage,
+  currentPage,
 }: {
   setCurrentPage: (page: string) => void;
+  currentPage: string;
 }) {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
@@ -43,6 +45,7 @@ function Navbar({
     <AppBar position="static" sx={{ backgroundColor: "black" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
+          {/* Desktop Logo */}
           <Link
             href="#"
             underline="none"
@@ -50,6 +53,7 @@ function Navbar({
               mr: 2,
               display: { xs: "none", md: "flex" },
             }}
+            onClick={() => setCurrentPage("Home")}
           >
             <img
               src={logo}
@@ -58,17 +62,47 @@ function Navbar({
             />
           </Link>
 
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
+          {/* Mobile Layout */}
+          <Box
+            sx={{
+              width: "100%",
+              display: { xs: "flex", md: "none" },
+              alignItems: "center",
+              position: "relative",
+            }}
+          >
+            {/* Mobile Menu Button - Absolute positioned */}
+            <Box sx={{ position: "absolute", left: 0, zIndex: 1 }}>
+              <IconButton
+                size="large"
+                aria-label="menu"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                onClick={handleOpenNavMenu}
+                color="inherit"
+              >
+                <MenuIcon />
+              </IconButton>
+            </Box>
+
+            {/* Mobile Logo - Centered */}
+            <Box
+              sx={{
+                width: "100%",
+                display: "flex",
+                justifyContent: "center",
+              }}
             >
-              <MenuIcon />
-            </IconButton>
+              <Link
+                href="#"
+                underline="none"
+                onClick={() => setCurrentPage("Home")}
+              >
+                <img src={logo} alt="Logo" style={{ width: 40, height: 40 }} />
+              </Link>
+            </Box>
+
+            {/* Mobile Menu */}
             <Menu
               id="menu-appbar"
               anchorEl={anchorElNav}
@@ -83,43 +117,71 @@ function Navbar({
               }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
-              sx={{ display: { xs: "block", md: "none" } }}
+              sx={{
+                display: { xs: "block", md: "none" },
+                "& .MuiPaper-root": {
+                  backgroundColor: "black",
+                },
+                "& .MuiList-root": {
+                  padding: 0,
+                },
+              }}
             >
               {pages.map((page) => (
                 <MenuItem
                   key={page}
                   onClick={() => {
-                    setCurrentPage(page);
                     handleCloseNavMenu();
+                    setCurrentPage(page);
+                  }}
+                  sx={{
+                    backgroundColor:
+                      currentPage === page
+                        ? "rgba(255, 255, 255, 0.08)"
+                        : "transparent",
+                    "&:hover": {
+                      backgroundColor:
+                        currentPage === page
+                          ? "rgba(255, 255, 255, 0.12)"
+                          : "rgba(255, 255, 255, 0.04)",
+                    },
                   }}
                 >
-                  <Typography sx={{ textAlign: "center" }}>{page}</Typography>
+                  <Typography
+                    textAlign="center"
+                    sx={{
+                      color:
+                        currentPage === page
+                          ? "#fff"
+                          : "rgba(255, 255, 255, 0.7)",
+                      fontWeight: currentPage === page ? 600 : 400,
+                    }}
+                  >
+                    {page}
+                  </Typography>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
-          <Link
-            href="#"
-            underline="none"
-            sx={{
-              mr: 2,
-              display: { xs: "flex", md: "none" },
-              width: "100%",
-              justifyContent: "center",
-            }}
-          >
-            <img
-              src={logo}
-              alt="Logo"
-              style={{ width: 40, height: 40, marginRight: 8 }}
-            />
-          </Link>
+
+          {/* Desktop Menu */}
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
               <Button
                 key={page}
-                onClick={() => setCurrentPage(page)}
-                sx={{ my: 2, color: "white", display: "block" }}
+                onClick={() => {
+                  handleCloseNavMenu();
+                  setCurrentPage(page);
+                }}
+                sx={{
+                  my: 2,
+                  display: "block",
+                  color: currentPage === page ? "#fff" : "rgba(255, 255, 255, 0.7)",
+                  fontWeight: currentPage === page ? 600 : 400,
+                  "&:hover": {
+                    color: "#fff",
+                  },
+                }}
               >
                 {page}
               </Button>

@@ -24,7 +24,7 @@ function App() {
           minHeight: "100vh",
         }}
       >
-        <Navbar setCurrentPage={setCurrentPage} />
+        <Navbar setCurrentPage={setCurrentPage} currentPage={currentPage} />
         <Box component="main" sx={{ flex: 1 }}>
           <PageProvider page={currentPage} />
         </Box>
